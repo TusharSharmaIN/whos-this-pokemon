@@ -1,6 +1,5 @@
 const enterButton = document.getElementById("enter");
 const reloadButton = document.getElementById("reload");
-const audioPokemon = document.getElementById("audiopokemon");
 
 var pokemonName = "";
 var pokemonImageUrl = "";
@@ -19,8 +18,11 @@ function getRandomPokemon() {
     .then((data) => {
       pokemonName = data["pokemon"]["name"];
       pokemonImageUrl = data["sprites"]["front_default"];
+
       const img = document.querySelector("img");
+      const audioPokemon = document.getElementById("audiopokemon");
       img.setAttribute("src", pokemonImageUrl);
+      audioPokemon.play();
       console.log("POKEMON: " + pokemonName);
     })
     .catch((error) => {
@@ -31,7 +33,6 @@ function getRandomPokemon() {
 onReset = () => {
   document.querySelector("span").innerHTML = " ";
   document.getElementById("imgpokemon").className = null;
-  audioPokemon.play();
   getRandomPokemon();
 };
 
