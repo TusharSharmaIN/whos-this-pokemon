@@ -17,7 +17,12 @@ function getRandomPokemon() {
     })
     .then((data) => {
       pokemonName = data["pokemon"]["name"];
-      pokemonImageUrl = data["sprites"]["front_default"];
+      //  for image from api
+      // pokemonImageUrl = data["sprites"]["front_default"];
+      //  for svg image
+      pokemonImageUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/other/dream-world/${randPokemonId}.svg?raw=true`;
+      //for png image
+      // pokemonImageUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/other/official-artwork/${randPokemonId}.png?raw=true`;
 
       const img = document.querySelector("img");
       const audioPokemon = document.getElementById("audiopokemon");
